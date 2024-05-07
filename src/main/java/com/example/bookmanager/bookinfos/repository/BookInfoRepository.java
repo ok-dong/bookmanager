@@ -19,9 +19,10 @@ public class BookInfoRepository {
     private NaverBookInfoSearchService naverBookInfoSearchService;
 
     public BookInfo findByIsbn(String isbn) {
-        Optional<BookInfoJpo> bookJpo = bookInfoRepository.findByIsbn(isbn);
+        BookInfoJpo bookJpo = bookInfoRepository.findByIsbn(isbn);
 
-        BookInfo bookInfo = bookJpo.map(BookInfoMapper.INSTANCE::toBookInfo);
+        BookInfo bookInfo = BookInfoMapper.INSTANCE.toBookInfo(bookJpo);
+//        BookInfo bookInfo = bookJpo.map(BookInfoMapper.INSTANCE::toBookInfo);
 
 //        if (bookJpo.map(BookInfoMapper.INSTANCE::toBookInfo)) {
 //            BookInfo bookInfo = naverBookInfoSearchService.findAndSaveByIsbn(isbn);
