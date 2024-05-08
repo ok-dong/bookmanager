@@ -26,8 +26,7 @@ public class NaverBookSearchApi {
                 .build();
 
         WebClient.ResponseSpec retrieved = webClient.get().uri("?query=" + isbn).retrieve();
-        NaverBookSearchResponse rsp = retrieved.bodyToMono(NaverBookSearchResponse.class).block();
 
-        return rsp;
+        return retrieved.bodyToMono(NaverBookSearchResponse.class).block();
     }
 }
