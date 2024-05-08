@@ -31,3 +31,6 @@ logging:
           descriptor:
             sql: trace
     com.example.bookmanager: debug
+
+naver.api:
+  search.book: https://openapi.naver.com/v1/search/book.json

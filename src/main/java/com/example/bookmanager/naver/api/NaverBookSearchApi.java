@@ -6,10 +6,11 @@ import org.springframework.web.reactive.function.client.WebClient;
 
 @Component
 public class NaverBookSearchApi {
-    String NAVER_SEARCH_BOOK_JSON = "https://openapi.naver.com/v1/search/book.json";
-    @Value("${clientId}")
+    @Value("${naver.api.search.book}")
+    String NAVER_SEARCH_BOOK_JSON;
+    @Value("${naver.api.client.id}")
     String clientId;
-    @Value("${clientSecret}")
+    @Value("${naver.api.client.secret}")
     String clientSecret;
 
     public NaverBookSearchResponse findByIsbn(String isbn) {
